@@ -1,0 +1,16 @@
+1. Creo un nuevo repositorio en mi github
+2. Me voy a mi carpeta en el cmd
+3. Pongo los siguientes comandos para subirlo la primera vez:
+- git init
+- git add .
+- git commit -m "Primer commit"
+- git remote add origin https://github.com/anagomezz-jurado/trasstarea.git
+- SUBIR PROYECTO
+	- git branch -M main
+	- git push -u origin main
+
+
+Ahora para subir cambios o modificaciones y que este completo pongo los siguientes comandos una vez dentro de la carpeta
+- git add .
+- git commit -m "Descripción de la versión o cambios"
+- git push

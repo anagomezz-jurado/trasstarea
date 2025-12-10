@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etTituloEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/idTitulo" />
+
+    <EditText
+        android:id="@+id/etFechaCreacionEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:hint="@string/itFechaCreacion" />
+
+    <EditText
+        android:id="@+id/etFechaObjetivoEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/itFechaObjetivo" />
+
+    <Spinner
+        android:id="@+id/spProgresoEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <CheckBox
+        android:id="@+id/cbPrioritariaEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/itPrioritaria" />
+
+    <EditText
+        android:id="@+id/etDescripcionEditar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/itdescripcion" />
+
+    <Button
+        android:id="@+id/btnGuardarEditar"
+        android:text="Guardar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

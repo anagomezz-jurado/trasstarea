@@ -1,0 +1,101 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <!-- Icono de estrella -->
+        <ImageView
+            android:id="@+id/imgIconoEstrella"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:src="@android:drawable/btn_star_big_off"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar" />
+
+        <!-- Título de la tarea -->
+        <TextView
+            android:id="@+id/txtTitutloTarea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/txtTituloTarea"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/imgIconoEstrella"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imgIconoEstrella" />
+
+        <!-- Barra de progreso -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="175dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/txtFecha"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtTitutloTarea" />
+
+        <!-- Fecha -->
+        <TextView
+            android:id="@+id/txtFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/txtFecha"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/progressBar"
+            app:layout_constraintStart_toEndOf="@id/progressBar"
+            app:layout_constraintTop_toTopOf="@id/progressBar" />
+
+        <!-- Quedan -->
+        <TextView
+            android:id="@+id/txtQuedan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="@string/txtQuedan"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/progressBar"
+            app:layout_constraintEnd_toStartOf="@+id/txtCantidad"
+            app:layout_constraintStart_toEndOf="@id/txtFecha"
+            app:layout_constraintTop_toTopOf="@id/progressBar" />
+
+        <!-- Cantidad -->
+        <TextView
+            android:id="@+id/txtCantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/txtCantidad"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/progressBar"
+            app:layout_constraintStart_toEndOf="@id/txtQuedan"
+            app:layout_constraintTop_toTopOf="@id/progressBar" />
+
+        <!-- Días -->
+        <TextView
+            android:id="@+id/txtdias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtdías"
+            android:textSize="10sp"
+            app:layout_constraintStart_toEndOf="@id/txtCantidad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/progressBar"
+            app:layout_constraintBottom_toBottomOf="@id/progressBar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
