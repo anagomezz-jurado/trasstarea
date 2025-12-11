@@ -23,19 +23,23 @@ import java.util.Calendar;
 
 public class FragmentoUno extends Fragment {
 
-    private FragmentoUnoListener listener;
+    private FragmentoUnoListener listener; //
 
     public interface FragmentoUnoListener {
         void onDatosIngresados(String titulo, String fechaCreacion, String fechaObjetivo,
                                int progreso, boolean prioritaria);
     }
 
+
+    //Con este método aseguro que la actividad implementa la intyerfaz
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         listener = (FragmentoUnoListener) context;
     }
 
+
+    //Inflo el layout,  devuelvo la vista que representa la interfaz
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -44,20 +48,23 @@ public class FragmentoUno extends Fragment {
         return inflater.inflate(R.layout.fragmentouno, container, false);
     }
 
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-
+        //Obtengo las referencias de los elementos de la interfaz
         EditText etTitulo = view.findViewById(R.id.etTitulo);
         EditText etFechaCreacion = view.findViewById(R.id.etFechaCreacion);
         EditText etFechaObjetivo = view.findViewById(R.id.etFechaObjetivo);
 
+        // Configuro al darle a la flecha con el metodo mostrarDatePicker
         etFechaCreacion.setOnClickListener(v -> mostrarDatePicker(etFechaCreacion));
         etFechaObjetivo.setOnClickListener(v -> mostrarDatePicker(etFechaObjetivo));
 
 
         Spinner spProgreso = view.findViewById(R.id.spProgreso);
 
-// Cargar array desde strings.xml  ✔ Traducible
+        //H ecreado en string un array de las opciones del spiner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 getContext(),
                 R.array.opciones_spinner,
@@ -69,6 +76,7 @@ public class FragmentoUno extends Fragment {
         CheckBox cbPrioritaria = view.findViewById(R.id.cbPrioritaria);
         Button btnSiguiente = view.findViewById(R.id.btnSiguiente);
 
+        // Cuando le doy al botón Siguiente recojo los datos de todos los campos
         btnSiguiente.setOnClickListener(v -> {
 
             String titulo = etTitulo.getText().toString().trim();
@@ -78,13 +86,17 @@ public class FragmentoUno extends Fragment {
             int progreso = valoresProgreso[spProgreso.getSelectedItemPosition()];
             boolean prioritaria = cbPrioritaria.isChecked();
 
+            //Compruebo que no hay ningún campo vacío
             if (titulo.isEmpty()) { Snackbar.make(view, getString(R.string.msgElTituloVacio), Snackbar.LENGTH_SHORT).show(); return; }
             if (fechaCreacion.isEmpty()) { Snackbar.make(view, getString(R.string.msg_fecha_creacion_vacia), Snackbar.LENGTH_SHORT).show(); return; }
             if (fechaObjetivo.isEmpty()) { Snackbar.make(view, getString(R.string.msg_fecha_objetivo_vacia), Snackbar.LENGTH_SHORT).show(); return; }
 
+            //llamo a listener.onDatos que le paso los datos a la Actividad
             listener.onDatosIngresados(titulo, fechaCreacion, fechaObjetivo, progreso, prioritaria);
         });
     }
+
+    //He creado este método para darle un formato al introducir la flecha
 
     private void mostrarDatePicker(EditText editText) {
         Calendar c = Calendar.getInstance();

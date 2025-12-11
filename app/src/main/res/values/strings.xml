@@ -49,5 +49,7 @@
 
     <string name="msg_solo_prioritarias">Mostrando solo prioritarias</string>
     <string name="msg_todas_tareas">Mostrando todas las tareas</string>
+    <string name="Editar">Editar</string>
+    <string name="Borrar">Borrar</string>
 
 </resources>

@@ -26,32 +26,35 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHol
     private ArrayList<Tarea> datosTarea;
 
     public TareaAdapter(ArrayList<Tarea> datosTarea) {
-        this.datosTarea = datosTarea;
+        this.datosTarea = datosTarea; // Constructor que recibe los datos iniciales
     }
 
     @NonNull
     @Override
     public TareaViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Inflo el layout de un elemento_listado y creo un ViewHolder
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.elemento_listado, parent, false);
         return new TareaViewHolder(item);
     }
 
     @Override
     public void onBindViewHolder(@NonNull TareaViewHolder holder, int position) {
+        // Asigno los datos de la tarea en la posición al ViewHolder.
         holder.bindTarea(datosTarea.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return datosTarea.size();
+        return datosTarea.size(); // Devuelve los elementos de la tarea
     }
 
     public void actualizarDatos(ArrayList<Tarea> nuevasTareas) {
+        // Método para reemplazar los datos y refrescar la vista.
         this.datosTarea.clear();
         this.datosTarea.addAll(nuevasTareas);
-        notifyDataSetChanged();
+        notifyDataSetChanged(); // Indica al RecyclerView que debe redibujar todos sus elementos.
     }
-
+/// //////////////////////////////////////////////////
     public class TareaViewHolder extends RecyclerView.ViewHolder {
         private TextView tituloTarea;
         private ProgressBar progressBar;
@@ -60,6 +63,7 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHol
 
         public TareaViewHolder(@NonNull View itemView) {
             super(itemView);
+            // Enlazo los componentes del layout  con las variables
             tituloTarea = itemView.findViewById(R.id.txtTitutloTarea);
             progressBar = itemView.findViewById(R.id.progressBar);
             txtFecha = itemView.findViewById(R.id.txtFecha);
@@ -67,21 +71,23 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHol
         }
 
         public void bindTarea(Tarea tarea) {
+            // Relleno los elementos de la fila con los datos de la tarea
             tituloTarea.setText(tarea.getTitulo());
             progressBar.setProgress(tarea.getProgreso());
             txtFecha.setText(tarea.getFechaObjetivo());
 
             try {
+                // Calculo los días restantes
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDate fechaObjetivo = LocalDate.parse(tarea.getFechaObjetivo(), formatter);
                 long diasRestantes = ChronoUnit.DAYS.between(LocalDate.now(), fechaObjetivo);
-                txtCantidad.setText(String.valueOf(diasRestantes));
+                txtCantidad.setText(String.valueOf(diasRestantes)); // Muestra los días restantes.
             } catch (Exception e) {
                 txtFecha.setText("Fecha inválida");
                 txtCantidad.setText("-");
             }
 
-
+            //Si hago click corto muestro dialgodo de el titulo y la descripcion de la tarea
             itemView.setOnClickListener(v -> {
                 new AlertDialog.Builder(itemView.getContext())
                         .setTitle(tarea.getTitulo())
@@ -90,31 +96,31 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHol
                         .show();
             });
 
-            // Click largo para menú contextual
+            // Si hago click largo muestro las opciones de Editar o Borrar
             itemView.setOnLongClickListener(v -> {
-                mostrarMenuContextual(itemView.getContext(), tarea);
+                mostrarMenuContextual(itemView.getContext(), tarea); // Llamo al menú contextual con el método
                 return true;
             });
         }
 
         private void mostrarMenuContextual(Context context, Tarea tarea) {
-            CharSequence opciones[] = new CharSequence[] {"Editar", "Borrar"};
+            CharSequence opciones[] = new CharSequence[] {context.getString(R.string.Editar),
+                                                    context.getString(R.string.Borrar)}; //Son las opciones que hay en el menú contextual
             new AlertDialog.Builder(context)
                     .setTitle(tarea.getTitulo())
                     .setItems(opciones, (dialog, which) -> {
-                        if (which == 0) {
-                            // Editar
-                            Intent i = new Intent(context, EditarTareaActivity.class);
-                            i.putExtra("tareaIndex", getAdapterPosition());
+                        if (which == 0) { //Si la opción es 0 es editar
+                            Intent i = new Intent(context, EditarTareaActivity.class); //   donde inicio la actividad y la dirijo hacia ella
+                            i.putExtra("tareaIndex", getAdapterPosition()); // Pasa el índice de la tarea en la lista.
                             context.startActivity(i);
-                        } else if (which == 1) {
-                            // Borrar con confirmación
+                        } else if (which == 1) { //Si la opicón es 1 es Borrar
                             new AlertDialog.Builder(context)
                                     .setTitle("Borrar tarea")
                                     .setMessage("¿Seguro que quieres borrar \"" + tarea.getTitulo() + "\"?")
                                     .setPositiveButton("Borrar", (d, w) -> {
                                         int pos = getAdapterPosition();
-                                        RepositorioTareas.listaTareas.remove(pos);
+                                        RepositorioTareas.listaTareas.remove(pos); // Elimina del repositorio global.
+                                        // Refresco el adaptador  actualizando la lista
                                         actualizarDatos(new ArrayList<>(RepositorioTareas.listaTareas));
                                         Toast.makeText(context, "Tarea borrada", Toast.LENGTH_SHORT).show();
                                     })

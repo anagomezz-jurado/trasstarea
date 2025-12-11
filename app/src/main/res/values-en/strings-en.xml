@@ -50,4 +50,6 @@
     <string name="msg_solo_prioritarias">Showing only priority tasks</string>
     <string name="msg_todas_tareas">Showing all tasks</string>
 
+    <string name="Editar">Edit</string>
+    <string name="Borrar">Delete</string>
 </resources>

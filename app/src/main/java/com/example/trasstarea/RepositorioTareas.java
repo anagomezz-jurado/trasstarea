@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 
 public class RepositorioTareas {
+    //Creo un ArrayList estático que guarda la lista de las tareas que hay
     public static ArrayList<Tarea> listaTareas = new ArrayList<>();
     static {
         // Datos de ejemplo con diferentes niveles de progreso y prioridad

@@ -16,32 +16,38 @@ import com.example.trasstarea.TareaViewModel;
 public class CrearTareaActivity extends AppCompatActivity
         implements FragmentoUno.FragmentoUnoListener, FragmentoDos.FragmentoDosListener {
 
-    private TareaViewModel vm;
+
+    private TareaViewModel vm; //Creo la instandia de la clase TareaViewModel para compartir datos entre los fragmentos
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_crear_tarea);
+        setContentView(R.layout.activity_crear_tarea); //es el diseño de la actividad
 
-        vm = new ViewModelProvider(this).get(TareaViewModel.class);
+        vm = new ViewModelProvider(this).get(TareaViewModel.class); //inicializo la instancia
 
+        //cargo el FragmentoUno con el contenedor de la vista donde se debe representar el primer fragmento
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contenedorFragmento, new FragmentoUno())
                 .commit();
 
     }
 
+
+    //Reemplazo el FragmentoUno por el FragmentoDos
     private void cargarFragmentoDos() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.contenedorFragmento, new FragmentoDos())
-                .addToBackStack(null)
+                .addToBackStack(null) // he añadido esto para que pueda darle al botón de retroceso
                 .commit();
     }
 
     @Override
     public void onDatosIngresados(String titulo, String fechaCreacion, String fechaObjetivo,
-                                  int progreso, boolean prioritaria) {
+                                  int progreso, boolean prioritaria) { //Se activa cuando se le da a Siguiente
 
+        //Guardo los valores de cada campo en los objetos de la clase TareaViewModel y llamo al
+        //método cargarGramentoDoss
         vm.titulo.setValue(titulo);
         vm.fechaCreacion.setValue(fechaCreacion);
         vm.fechaObjetivo.setValue(fechaObjetivo);
@@ -52,7 +58,7 @@ public class CrearTareaActivity extends AppCompatActivity
     }
 
     @Override
-    public void onGuardarDescripcion(String descripcion) {
+    public void onGuardarDescripcion(String descripcion) { //Se activa cuando le da a Guardar
 
         vm.descripcion.setValue(descripcion);
 
@@ -65,13 +71,14 @@ public class CrearTareaActivity extends AppCompatActivity
                 vm.descripcion.getValue() != null ? vm.descripcion.getValue() : ""
         );
 
-        // Añadir a lista estática
+
         RepositorioTareas.listaTareas.add(tarea);
 
         Toast.makeText(this, getString(R.string.msgTareaGuardadaCorrectamente) , Toast.LENGTH_LONG).show();
-        finish(); // Volver a ListadoTareasActivity
+        finish();
     }
 
+    //Este método se usa por si le da al botón volver que se va a FragmentoUno
     @Override
     public void onVolver() {
         getSupportFragmentManager().popBackStack();

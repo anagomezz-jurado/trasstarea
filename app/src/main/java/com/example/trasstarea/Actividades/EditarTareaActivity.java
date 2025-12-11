@@ -24,13 +24,14 @@ public class EditarTareaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_tarea);
 
-        // Obtener posición de la tarea desde el Intent
+        // Obtengo la posición de la tarea desde el Intent
         tareaIndex = getIntent().getIntExtra("tareaIndex", -1);
         if (tareaIndex == -1) {
             finish();
             return;
         }
 
+        //En tarea guardo los datos de la tarea que indique el index
         tarea = RepositorioTareas.listaTareas.get(tareaIndex);
 
         EditText etTitulo = findViewById(R.id.etTituloEditar);
@@ -41,13 +42,14 @@ public class EditarTareaActivity extends AppCompatActivity {
         EditText etDescripcion = findViewById(R.id.etDescripcionEditar);
         Button btnGuardar = findViewById(R.id.btnGuardarEditar);
 
-        // Cargar datos actuales
+        // Cargo los datos actuales a tarea
         etTitulo.setText(tarea.getTitulo());
         etFechaCreacion.setText(tarea.getFechaCreacion());
         etFechaObjetivo.setText(tarea.getFechaObjetivo());
         etDescripcion.setText(tarea.getDescripcion());
         cbPrioritaria.setChecked(tarea.isPrioritaria());
 
+        //Vuelvo a crear un ArrayAdapter para el spiner mostrando las soluciones que he creado en strings
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 this,
                 R.array.opciones_spinner,
@@ -62,11 +64,12 @@ public class EditarTareaActivity extends AppCompatActivity {
         int[] valoresProgreso = {0, 25, 50, 75, 100};
         for (int i = 0; i < valoresProgreso.length; i++) {
             if (valoresProgreso[i] == tarea.getProgreso()) {
-                spProgreso.setSelection(i);
+                spProgreso.setSelection(i);   //establezco la selección correcta al spiner
                 break;
             }
         }
 
+        //Al darle al botón guardar le doy a cada campo su valor y lo guardo en tarea
         btnGuardar.setOnClickListener(v -> {
             tarea.setTitulo(etTitulo.getText().toString());
             tarea.setFechaObjetivo(etFechaObjetivo.getText().toString());
@@ -75,7 +78,7 @@ public class EditarTareaActivity extends AppCompatActivity {
             tarea.setProgreso(valoresProgreso[spProgreso.getSelectedItemPosition()]);
 
             Toast.makeText(this, getString(R.string.msgTareaActualizada), Toast.LENGTH_SHORT).show();
-            finish();
+            finish(); //Una vez guardado salgo de la actividad
         });
 
     }
