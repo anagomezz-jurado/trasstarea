@@ -10,7 +10,6 @@ import com.example.trasstarea.Fragmentos.FragmentoDos;
 import com.example.trasstarea.Fragmentos.FragmentoUno;
 import com.example.trasstarea.Modelo.Tarea;
 import com.example.trasstarea.R;
-import com.example.trasstarea.RepositorioTareas;
 import com.example.trasstarea.TareaViewModel;
 
 public class CrearTareaActivity extends AppCompatActivity
@@ -72,7 +71,7 @@ public class CrearTareaActivity extends AppCompatActivity
         );
 
 
-        RepositorioTareas.listaTareas.add(tarea);
+        ListadoTareasActivity.listaTareas.add(tarea);
 
         Toast.makeText(this, getString(R.string.msgTareaGuardadaCorrectamente) , Toast.LENGTH_LONG).show();
         finish();

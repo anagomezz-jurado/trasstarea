@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trasstarea.Actividades.EditarTareaActivity;
+import com.example.trasstarea.Actividades.ListadoTareasActivity;
 import com.example.trasstarea.Modelo.Tarea;
 
 import java.time.LocalDate;
@@ -119,9 +120,9 @@ public class TareaAdapter extends RecyclerView.Adapter<TareaAdapter.TareaViewHol
                                     .setMessage("¿Seguro que quieres borrar \"" + tarea.getTitulo() + "\"?")
                                     .setPositiveButton("Borrar", (d, w) -> {
                                         int pos = getAdapterPosition();
-                                        RepositorioTareas.listaTareas.remove(pos); // Elimina del repositorio global.
+                                        ListadoTareasActivity.listaTareas.remove(pos); // Elimina del repositorio global.
                                         // Refresco el adaptador  actualizando la lista
-                                        actualizarDatos(new ArrayList<>(RepositorioTareas.listaTareas));
+                                        actualizarDatos(new ArrayList<>(ListadoTareasActivity.listaTareas));
                                         Toast.makeText(context, "Tarea borrada", Toast.LENGTH_SHORT).show();
                                     })
                                     .setNegativeButton("Cancelar", null)

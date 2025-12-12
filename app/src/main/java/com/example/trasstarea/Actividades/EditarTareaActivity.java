@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trasstarea.Modelo.Tarea;
 import com.example.trasstarea.R;
-import com.example.trasstarea.RepositorioTareas;
 
 public class EditarTareaActivity extends AppCompatActivity {
 
@@ -32,7 +31,7 @@ public class EditarTareaActivity extends AppCompatActivity {
         }
 
         //En tarea guardo los datos de la tarea que indique el index
-        tarea = RepositorioTareas.listaTareas.get(tareaIndex);
+        tarea = ListadoTareasActivity.listaTareas.get(tareaIndex);
 
         EditText etTitulo = findViewById(R.id.etTituloEditar);
         EditText etFechaCreacion = findViewById(R.id.etFechaCreacionEditar);

@@ -15,12 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trasstarea.Modelo.Tarea;
 import com.example.trasstarea.R;
-import com.example.trasstarea.RepositorioTareas;
 import com.example.trasstarea.TareaAdapter;
 
 import java.util.ArrayList;
 
 public class ListadoTareasActivity extends AppCompatActivity {
+    public static ArrayList<Tarea> listaTareas = new ArrayList<>(); //Creo la lista de tareas que van a aparecer en el listado
 
     private RecyclerView rv; // Esto es lo que contiene la vista para que se desplazce
     private TareaAdapter adaptador; //Instancio el adaptador para visualizar los datos
@@ -31,13 +31,16 @@ public class ListadoTareasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_tareas);
 
+        // Cargar datos de ejemplo al iniciar
+        cargarTareas();
+
         Toolbar toolbar = findViewById(R.id.toolbarListado);
         setSupportActionBar(toolbar); // Añado el toolbar a la actividad
 
         rv = findViewById(R.id.rvTareas); // Enlazo el reycler con el reycler de la vista
 
         // Inicializo el adaptador con una copia de la lista de tareas
-        adaptador = new TareaAdapter(new ArrayList<>(RepositorioTareas.listaTareas));
+        adaptador = new TareaAdapter(new ArrayList<>(listaTareas));
         rv.setAdapter(adaptador);
         rv.setLayoutManager(new LinearLayoutManager(this)); // Establece un layout vertical para la lista.
 
@@ -66,12 +69,12 @@ public class ListadoTareasActivity extends AppCompatActivity {
         if (mostrarSoloPrioritarias) {
             listaAMostrar = new ArrayList<>();
             // Itera para aplicar el filtro de tareas prioritarias.
-            for (Tarea t : RepositorioTareas.listaTareas) {
+            for (Tarea t : listaTareas) {
                 if (t.isPrioritaria()) listaAMostrar.add(t);
             }
         } else {
             // Muestro  las tareas
-            listaAMostrar = new ArrayList<>(RepositorioTareas.listaTareas);
+            listaAMostrar = new ArrayList<>(listaTareas);
         }
 
         //Se notifica al adaptador que se han cambiado datos
@@ -117,6 +120,19 @@ public class ListadoTareasActivity extends AppCompatActivity {
                 .setMessage(getString(R.string.acerca_de_mensaje))
                 .setPositiveButton(getString(R.string.btn_aceptar), (dialog, which) -> dialog.dismiss())
                 .show();
+    }
+
+    //Metodo para cargar los datos
+    private void cargarTareas() {
+        // Datos de ejemplo con diferentes niveles de progreso y prioridad
+        listaTareas.add(new Tarea("Comprar comida", "10/12/2025", "12/12/2025", 0, true, "Comprar leche, pan, huevos y frutas"));
+        listaTareas.add(new Tarea("Estudiar matemáticas", "10/12/2025", "15/12/2025", 25, false, "Repasar álgebra y geometría"));
+        listaTareas.add(new Tarea("Hacer ejercicio", "10/12/2025", "10/12/2025", 50, true, "Correr 30 minutos y estiramientos"));
+        listaTareas.add(new Tarea("Llamar al banco", "10/12/2025", "12/12/2025", 0, false, "Consultar movimientos y pagos pendientes"));
+        listaTareas.add(new Tarea("Preparar presentación", "09/12/2025", "14/12/2025", 75, true, "Diapositivas sobre proyecto final"));
+        listaTareas.add(new Tarea("Leer libro", "08/12/2025", "20/12/2025", 50, false, "Leer capítulo 5 y 6 del libro de historia"));
+        listaTareas.add(new Tarea("Enviar correos", "10/12/2025", "11/12/2025", 100, true, "Responder correos urgentes del trabajo"));
+        listaTareas.add(new Tarea("Cocinar cena", "10/12/2025", "10/12/2025", 25, false, "Preparar pasta con verduras"));
     }
 
 }

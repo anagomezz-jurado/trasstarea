@@ -48,28 +48,6 @@
         app:layout_constraintTop_toBottomOf="@id/txtDescripcion" />
 
 
-    <!-- Botón Español -->
-    <Button
-        android:id="@+id/btnEspañol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Español"
-        app:layout_constraintTop_toBottomOf="@id/btnEmpezar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnIngles"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"/>
 
-    <!-- Botón Inglés -->
-    <Button
-        android:id="@+id/btnIngles"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="English"
-        app:layout_constraintTop_toBottomOf="@id/btnEmpezar"
-        app:layout_constraintStart_toEndOf="@id/btnEspañol"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="8dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

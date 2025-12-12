@@ -31,41 +31,12 @@ public class MainActivity extends AppCompatActivity {
         //Al darle al boton de empezar llamo a irAlListado que se va a la actividad ListadoTareasActivity
         Button btnEmpezar = findViewById(R.id.btnEmpezar);
         btnEmpezar.setOnClickListener(this::irAlListado);
-
-        // Botones para cambiar el idioma
-        Button btnEspañol = findViewById(R.id.btnEspañol);
-        Button btnIngles = findViewById(R.id.btnIngles);
-
-        btnEspañol.setOnClickListener(v -> establecerIdioma("es"));
-        btnIngles.setOnClickListener(v -> establecerIdioma("en"));
     }
 
     //Este es el método donde me envia a la actividad de Listado de tareas
     public void irAlListado(View view) {
         Intent intent = new Intent(this, ListadoTareasActivity.class);
         startActivity(intent);
-    }
-
-    private void establecerIdioma(String codigoIdioma) {
-        //Creo el objeto Locale  y establezco el predeterminado
-        Locale locale = new Locale(codigoIdioma);
-        Locale.setDefault(locale);
-
-        //Obtengo los recursos  y la Configuración que establece un nuevo idioa
-        Resources recursos = getResources();
-        Configuration configuracion = recursos.getConfiguration();
-        configuracion.setLocale(locale);
-        //Y aplica la nueva configuracion a los recursos de la aplicacion
-        recursos.updateConfiguration(configuracion, recursos.getDisplayMetrics());
-
-        //Utilizo el SharedPreferences para guardar el código del idioma y accedo a Setting
-        SharedPreferences prefs = getSharedPreferences("Settings", MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putString("My_Lang", codigoIdioma); //Gurado el código del idioma como "My_Kan " y guardo los cambios con apply
-        editor.apply();
-
-        // Reinicio la actividad para que se hagan los cambios
-        recreate();
     }
 
 
