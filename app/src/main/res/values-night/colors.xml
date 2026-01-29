@@ -1,0 +1,18 @@
+<resources>
+    <!-- Gradiente oscuro opcional -->
+    <color name="degradado_inicio">#2C3E50</color>   <!-- azul grisáceo -->
+    <color name="degradado_fin">#4CA1AF</color>      <!-- verde grisáceo -->
+
+    <color name="colorBackground">#8E869D</color>
+    <!-- Tema oscuro -->
+    <color name="primaryColor">#BB86FC</color>
+    <color name="onPrimaryColor">#000000</color>
+    <color name="primaryContainerColor">#3700B3</color>
+    <color name="onPrimaryContainerColor">#FFFFFF</color>
+    <color name="secondaryColor">#03DAC5</color>
+    <color name="onSecondaryColor">#000000</color>
+    <color name="backgroundColor">#2C2C2C</color>
+    <color name="onBackgroundColor">#FFFFFF</color>
+    <color name="surfaceColor">#383838</color>
+    <color name="onSurfaceColor">#FFFFFF</color>
+</resources>

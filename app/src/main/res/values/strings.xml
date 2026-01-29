@@ -1,0 +1,82 @@
+<resources>
+    <string name="app_name">TrassTarea</string>
+    <string name="Descripcion">Tus tareas, tu ritmo, tu éxito.</string>
+    <string name="btnEmpezar">Empezar</string>
+    <string name="txtTituloTarea">Título de la Tarea</string>
+    <string name="txtFecha">dd/mm/aaaa</string>
+    <string name="txtQuedan">Quedan:</string>
+    <string name="txtCantidad">00</string>
+    <string name="txtdías">días</string>
+    <string name="txtListadoTareas">Listado de Tareas\n</string>
+    <string name="txtTituloCrearTarea"> Crear tarea</string>
+    <string name="txtTituloTareaCrear">Título de la tarea</string>
+    <string name="txtFechaCreacion">Fecha de creacion de la tarea:</string>
+    <string name="txtFechaObjetivo">Fecha objetivo para la finalización de la tarea\n</string>
+    <string name="txtProgreso">Progreso</string>
+    <string name="txtPrioritaria">Prioritaria</string>
+    <string name="btnSiguiente">Siguiente</string>
+    <string name="txtAcercade">Acerca de ...</string>
+    <string name="txtSalir">Salir</string>
+    <string name="txtAnadirTarea">Añadir</string>
+    <string name="txtPrioritarias">Prioritarias</string>
+
+    <string-array name="opciones_spinner">
+        <item>No iniciada</item>
+        <item>Iniciada</item>
+        <item>Avanzada</item>
+        <item>Casi finalizada</item>
+        <item>Finalizada</item>
+    </string-array>
+
+    <string name="txtTituloEditarTarea">Editar Tarea</string>
+    <string name="idTitulo">Titulo</string>
+    <string name="itFechaCreacion">Fecha de creacion</string>
+    <string name="itFechaObjetivo">Fecha objetivo</string>
+    <string name="itPrioritaria">Prioritaria</string>
+    <string name="itdescripcion">Descripción</string>
+    <string name="btnGuardar">Guardar</string>
+    <string name="btnVolver">Volver</string>
+    <string name="msgTareaGuardadaCorrectamente">Tarea guardada correctamente</string>
+    <string name="msgTareaActualizada">Tarea Actualizada</string>
+    <string name="msgLaDescripcionEstaVacia">La descripción está vacía</string>
+    <string name="msgElTituloVacio">"El título está vacío"</string>
+    <string name="msg_fecha_creacion_vacia">La fecha de creación está vacía</string>
+    <string name="msg_fecha_objetivo_vacia">La fecha objetivo está vacía</string>
+    <string name="acerca_de_mensaje">
+    Aplicación: TrassTarea\nCentro: IES Trassierra\nAutor: Ana Gómez\nAño: 2025
+    </string>
+    <string name="btn_aceptar">Aceptar</string>
+
+    <string name="msg_solo_prioritarias">Mostrando solo prioritarias</string>
+    <string name="msg_todas_tareas">Mostrando todas las tareas</string>
+    <string name="Editar">Editar</string>
+    <string name="Borrar">Borrar</string>
+    <string name="title_activity_settings">Configuración de actividad</string>
+    <string name="txtPreferencias">Preferencias</string>
+    <!-- Titulos-->
+    <string name="txtVisualizacion">Visualización</string>
+    <string name="txtOrdenacion">Ordenacion</string>
+    <string name="txtAlmacenamiento">Almacenamiento</string>
+
+    <!-- Visualizacion -->
+    <string name="txtTema">Tema</string>
+    <string name="txtTamanioLetra">Tamaño de letra</string>
+    <string name="seleccionar_archivo">Seleccionar archivo</string>
+
+    <!-- Ordenacion -->
+    <string name="txtCriterio">Criterio</string>
+    <string name="txtOrden">Orden</string>
+
+    <string name="desc_documento">Documento</string>
+    <string name="desc_imagen">Imagen</string>
+    <string name="desc_audio">Audio</string>
+    <string name="desc_video">Video</string>
+
+
+    <!-- Almacenamiento -->
+    <string name="txtAlamcenamiento">Almacenamiento en tarjeta SD</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btnCancelar">Cancelar</string>
+
+</resources>

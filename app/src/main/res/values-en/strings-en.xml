@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">TrassTarea</string>
+    <string name="Descripcion">Your tasks, your pace, your success.</string>
+    <string name="btnEmpezar">Start</string>
+    <string name="txtTituloTarea">Task Title</string>
+    <string name="txtFecha">dd/mm/yyyy</string>
+    <string name="txtQuedan">Remaining:</string>
+    <string name="txtCantidad">00</string>
+    <string name="txtdías">days</string>
+    <string name="txtListadoTareas">Task List\n</string>
+    <string name="txtTituloCrearTarea">Create Task</string>
+    <string name="txtTituloTareaCrear">Task Title</string>
+    <string name="txtFechaCreacion">Task Creation Date:</string>
+    <string name="txtFechaObjetivo">Target date for task completion\n</string>
+    <string name="txtProgreso">Progress</string>
+    <string name="txtPrioritaria">Priority</string>
+    <string name="btnSiguiente">Next</string>
+    <string name="txtAcercade">About...</string>
+    <string name="txtSalir">Exit</string>
+    <string name="txtAnadirTarea">Add</string>
+    <string name="txtPrioritarias">Priority Tasks</string>
+
+    <string-array name="opciones_spinner">
+        <item>Not started</item>
+        <item>Started</item>
+        <item>In progress</item>
+        <item>Almost finished</item>
+        <item>Completed</item>
+    </string-array>
+
+    <string name="txtTituloEditarTarea">Edit Task</string>
+    <string name="idTitulo">Title</string>
+    <string name="itFechaCreacion">Creation Date</string>
+    <string name="itFechaObjetivo">Target Date</string>
+    <string name="itPrioritaria">Priority</string>
+    <string name="itdescripcion">Description</string>
+    <string name="btnGuardar">Save</string>
+    <string name="btnVolver">Back</string>
+    <string name="msgTareaGuardadaCorrectamente">Task saved successfully</string>
+    <string name="msgTareaActualizada">Task updated</string>
+    <string name="msgLaDescripcionEstaVacia">The description is empty</string>
+    <string name="msgElTituloVacio">The title is empty</string>
+    <string name="msg_fecha_creacion_vacia">The creation date is empty</string>
+    <string name="msg_fecha_objetivo_vacia">The target date is empty</string>
+    <string name="acerca_de_mensaje">
+        Application: TrassTarea\nCenter: IES Trassierra\nAuthor: Ana Gómez\nYear: 2025
+    </string>
+    <string name="btn_aceptar">Accept</string>
+
+    <string name="msg_solo_prioritarias">Showing only priority tasks</string>
+    <string name="msg_todas_tareas">Showing all tasks</string>
+
+    <string name="Editar">Edit</string>
+    <string name="Borrar">Delete</string>
+
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="txtPreferencias">Preferencias</string>
+
+
+    <!-- Titulos-->
+    <string name="txtVisualizacion">Visualización</string>
+    <string name="txtOrdenacion">Ordenacion</string>
+    <string name="txtAlmacenamiento">Almacenamiento</string>
+
+    <!-- Visualizacion -->
+    <string name="txtTema">Tema</string>
+    <string name="txtTamanioLetra">Tamaño de letra</string>
+
+    <!-- Ordenacion -->
+    <string name="txtCriterio">Criterio</string>
+    <string name="txtOrden">Orden</string>
+
+    <string name="seleccionar_archivo">Seleccionar archivo</string>
+
+    <!-- Almacenamiento -->
+    <string name="txtAlamcenamiento">Almacenamiento en tarjeta SD</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="desc_documento">Documento</string>
+    <string name="desc_imagen">Imagen</string>
+    <string name="desc_audio">Audio</string>
+    <string name="desc_video">Video</string>
+
+    <string name="btnCancelar">Cancelar</string>
+
+
+</resources>

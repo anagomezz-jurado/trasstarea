@@ -1,0 +1,57 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/txtVisualizacion">
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:icon="@drawable/tema"
+            app:key="tema"
+            app:summaryOff="Oscuro"
+            app:summaryOn="Claro"
+            app:title="@string/txtTema" />
+
+        <ListPreference
+            app:defaultValue="2"
+            app:entries="@array/tamano_letra_entries"
+            app:entryValues="@array/tamano_letra_values"
+            app:icon="@drawable/tamanioletra"
+            app:key="fuente"
+            app:title="@string/txtTamanioLetra"
+            app:useSimpleSummaryProvider="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/txtOrdenacion">
+        <ListPreference
+            app:defaultValue="2"
+            app:entries="@array/criterio_entries"
+            app:entryValues="@array/criterio_values"
+            app:icon="@drawable/criterio"
+            app:key="criterio"
+            app:title="@string/txtCriterio"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            app:defaultValue="true"
+            app:icon="@drawable/orden"
+            app:key="orden"
+            app:summaryOff="Descendente"
+            app:summaryOn="Ascendente"
+            app:title="Orden" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/txtAlmacenamiento">
+        <SwitchPreferenceCompat
+            app:defaultValue="false"
+            app:icon="@drawable/almacenamientosd"
+            app:key="sd"
+            app:summary="Guardar archivos en tarjeta SD"
+            app:title="Almacenamiento en tarjeta SD" />
+    </PreferenceCategory>
+
+    <!-- Botón restablecer preferencias -->
+    <Preference
+        android:key="restablecer"
+        app:title="Restablecer preferencias"
+        app:summary="Restablece los valores por defecto" />
+
+</PreferenceScreen>

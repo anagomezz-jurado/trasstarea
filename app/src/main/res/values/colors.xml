@@ -1,0 +1,19 @@
+<resources>
+    <!-- Gradiente -->
+    <color name="degradado_inicio">#456F7E</color>   <!-- azul verdoso -->
+    <color name="degradado_fin">#90E9AF</color>      <!-- verde claro -->
+
+    <!-- Tema claro -->
+    <color name="primaryColor">#6200EE</color>
+    <color name="colorBackground">#8E869D</color>
+
+    <color name="onPrimaryColor">#FFFFFF</color>
+    <color name="primaryContainerColor">#BB86FC</color>
+    <color name="onPrimaryContainerColor">#525151</color>
+    <color name="secondaryColor">#03DAC5</color>
+    <color name="onSecondaryColor">#504E4E</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="onBackgroundColor">#575656</color>
+    <color name="surfaceColor">#FFFFFF</color>
+    <color name="onSurfaceColor">#4D4A4A</color>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group
+        android:id="@+id/it_group_actividades"
+        android:checkableBehavior="single"
+        android:orderInCategory="200">
+        <item
+            android:id="@+id/it_anadir"
+            android:icon="@drawable/anadir"
+            android:orderInCategory="210"
+            android:title="@string/txtAnadirTarea"
+            app:showAsAction="ifRoom|withText" />
+        <item
+            android:id="@+id/it_prioritarias"
+            android:icon="@drawable/prioritaria"
+            android:orderInCategory="220"
+            android:title="@string/txtPrioritarias"
+            app:showAsAction="ifRoom|withText" />
+    </group>
+    <group
+        android:id="@+id/it_group_add"
+        android:orderInCategory="400">
+        <item
+            android:id="@+id/it_preferencias"
+            android:orderInCategory="410"
+            android:title="@string/txtPreferencias"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/it_acercade"
+            android:orderInCategory="410"
+            android:title="@string/txtAcercade"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/it_salir"
+            android:orderInCategory="420"
+            android:title="@string/txtSalir"
+            app:showAsAction="never" />
+    </group>
+</menu>
